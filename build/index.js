@@ -19045,7 +19045,7 @@ var DayDate = function (_Component) {
       if (this.props.selected) {
         return '#F5BA26';
       } else if (this.props.highlighted) {
-        return '#8C298C';
+        return '#000';
       }
     }
   }, {
