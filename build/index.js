@@ -18976,13 +18976,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(['\n  display: table;\n  margin: 0 auto;\n'], ['\n  display: table;\n  margin: 0 auto;\n']),
+var _templateObject = _taggedTemplateLiteral(['\n  display: table;\n  margin: 0 auto auto auto;\n'], ['\n  display: table;\n  margin: 0 auto auto auto;\n']),
     _templateObject2 = _taggedTemplateLiteral(['\n'], ['\n']),
     _templateObject3 = _taggedTemplateLiteral(['\n  display: table;\n  margin: 5px auto;\n'], ['\n  display: table;\n  margin: 5px auto;\n']),
-    _templateObject4 = _taggedTemplateLiteral(['\n  position: relative;\n  left: 14px;\n  top: 13px;\n'], ['\n  position: relative;\n  left: 14px;\n  top: 13px;\n']),
+    _templateObject4 = _taggedTemplateLiteral(['\n  position: relative;\n  margin: 7px auto;\n'], ['\n  position: relative;\n  margin: 7px auto;\n']),
     _templateObject5 = _taggedTemplateLiteral(['\n  display: inline-block;\n  margin: 8px;\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background: #D3D3D3;\n'], ['\n  display: inline-block;\n  margin: 8px;\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n  background: #D3D3D3;\n']),
     _templateObject6 = _taggedTemplateLiteral(['\n  display: inline-block;\n  margin: 8px;\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n'], ['\n  display: inline-block;\n  margin: 8px;\n  width: 40px;\n  height: 40px;\n  border-radius: 50%;\n']),
-    _templateObject7 = _taggedTemplateLiteral(['\n  display: table;\n  margin: 13px auto;\n  color: #0096ed;\n'], ['\n  display: table;\n  margin: 13px auto;\n  color: #0096ed;\n']);
+    _templateObject7 = _taggedTemplateLiteral(['\n  display: table;\n  margin: 7px auto;\n  color: #000;\n'], ['\n  display: table;\n  margin: 7px auto;\n  color: #000;\n']);
 
 var _react = __webpack_require__(3);
 
@@ -19011,6 +19011,8 @@ var Heading = _styledComponents2.default.div(_templateObject);
 var CalendarWrapper = _styledComponents2.default.div(_templateObject2);
 
 var RowWrapper = _styledComponents2.default.ul(_templateObject3);
+
+var CalendarWrap = _styledComponents2.default.div(_templateObject3);
 
 var Label = _styledComponents2.default.div(_templateObject4);
 
@@ -19208,34 +19210,42 @@ var Calendar = function (_Component2) {
         _react2.default.createElement(
           Heading,
           null,
-          _react2.default.createElement('button', { style: { position: 'relative', top: '5px' }, onClick: function onClick() {
-              if (_this3.state.month === 1) {
-                _this3.setState({
-                  month: 12,
-                  year: _this3.state.year - 1
-                });
-              } else {
-                _this3.setState({ month: _this3.state.month - 1 });
-              }
-            } }),
+          _react2.default.createElement(
+            'button',
+            { style: { position: 'relative', top: '5px' }, onClick: function onClick() {
+                if (_this3.state.month === 1) {
+                  _this3.setState({
+                    month: 12,
+                    year: _this3.state.year - 1
+                  });
+                } else {
+                  _this3.setState({ month: _this3.state.month - 1 });
+                }
+              } },
+            "<"
+          ),
           _react2.default.createElement(
             'span',
             null,
             this.getMonthName(this.state.month) + ", " + this.state.year
           ),
-          _react2.default.createElement('button', { style: { position: 'relative', top: '5px' }, onClick: function onClick() {
-              if (_this3.state.month === 12) {
-                _this3.setState({
-                  month: 1,
-                  year: _this3.state.year + 1
-                });
-              } else {
-                _this3.setState({ month: _this3.state.month + 1 });
-              }
-            } })
+          _react2.default.createElement(
+            'button',
+            { style: { position: 'relative', top: '5px' }, onClick: function onClick() {
+                if (_this3.state.month === 12) {
+                  _this3.setState({
+                    month: 1,
+                    year: _this3.state.year + 1
+                  });
+                } else {
+                  _this3.setState({ month: _this3.state.month + 1 });
+                }
+              } },
+            ">"
+          )
         ),
         _react2.default.createElement(
-          RowWrapper,
+          CalendarWrap,
           null,
           layout.map(function (week) {
             return _react2.default.createElement(

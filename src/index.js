@@ -4,7 +4,7 @@ import moment from 'moment'
 
 const Heading = styled.div`
   display: table;
-  margin: 0 auto;
+  margin: 0 auto auto auto;
 `
 
 const CalendarWrapper = styled.div`
@@ -15,10 +15,14 @@ const RowWrapper = styled.ul`
   margin: 5px auto;
 `
 
+const CalendarWrap = styled.div`
+  display: table;
+  margin: 5px auto;
+`
+
 const Label = styled.div`
   position: relative;
-  left: 14px;
-  top: 13px;
+  margin: 7px auto;
 `
 
 const Item = styled.li`
@@ -40,8 +44,8 @@ const Day = styled.li`
 
 const Number = styled.text`
   display: table;
-  margin: 13px auto;
-  color: #0096ed;
+  margin: 7px auto;
+  color: #000;
 `
 
 class DayDate extends Component {
@@ -199,7 +203,7 @@ class Calendar extends Component {
             } else {
               this.setState({ month: this.state.month - 1 })
             }
-          }}>
+          }}>{"<"}
           </button>
           <span>
             { this.getMonthName(this.state.month) + ", " + this.state.year }
@@ -213,10 +217,10 @@ class Calendar extends Component {
             } else {
               this.setState({ month: this.state.month + 1 })
             }
-          }}>
+          }}>{">"}
           </button>
         </Heading>
-        <RowWrapper>
+        <CalendarWrap>
         {layout.map(week => {
           return <RowWrapper>
             {week.map(item => {
@@ -237,7 +241,7 @@ class Calendar extends Component {
             })}
           </RowWrapper>
         })}
-        </RowWrapper>
+        </CalendarWrap>
       </CalendarWrapper>
     )
   }
