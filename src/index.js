@@ -60,17 +60,17 @@ class DayDate extends Component {
 
   fontColor() {
     if (this.props.selected) {
-      return '#F5BA26'
+      return this.props.selectedFontColor
     } else if (this.props.highlighted) {
-      return '#000'
+      return this.props.fontColor
     }
   }
 
   backgroundColor() {
     if (this.props.selected) {
-      return '#8C298C'
+      return this.props.selectedColor
     } else if (this.props.highlighted) {
-      return '#D4BAD7'
+      return this.props.highlightedColor
     }
   }
 
@@ -86,12 +86,16 @@ class DayDate extends Component {
 }
 
 class Calendar extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       date: moment().date(),
       month: moment().month(),
       year: moment().year(),
+      fontColor: this.props.fontColor,
+      selectedFontColor: this.props.selectedFontColor,
+      selectedColor: this.props.selectedColor,
+      highlightedColor: this.props.highlightedColor,
       startDay: null,
       startMonth: null,
       endDay: null,
@@ -236,6 +240,10 @@ class Calendar extends Component {
                                || (this.state.startMonth !== this.state.endMonth && ((this.state.month === this.state.startMonth && item > this.state.startDay)
                                || (this.state.month === this.state.endMonth && item < this.state.endDay)
                                || (this.state.month < this.state.endMonth && this.state.month > this.state.startMonth))))}
+                  fontColor={ this.state.fontColor }
+                  selectedFontColor={ this.state.selectedFontColor }
+                  selectedColor={ this.state.selectedColor }
+                  highlightedColor={ this.state.highlightedColor }
                 />
               )
             })}

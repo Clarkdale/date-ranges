@@ -19043,18 +19043,18 @@ var DayDate = function (_Component) {
     key: 'fontColor',
     value: function fontColor() {
       if (this.props.selected) {
-        return '#F5BA26';
+        return this.props.selectedFontColor;
       } else if (this.props.highlighted) {
-        return '#000';
+        return this.props.fontColor;
       }
     }
   }, {
     key: 'backgroundColor',
     value: function backgroundColor() {
       if (this.props.selected) {
-        return '#8C298C';
+        return this.props.selectedColor;
       } else if (this.props.highlighted) {
-        return '#D4BAD7';
+        return this.props.highlightedColor;
       }
     }
   }, {
@@ -19080,15 +19080,19 @@ var DayDate = function (_Component) {
 var Calendar = function (_Component2) {
   _inherits(Calendar, _Component2);
 
-  function Calendar() {
+  function Calendar(props) {
     _classCallCheck(this, Calendar);
 
-    var _this2 = _possibleConstructorReturn(this, (Calendar.__proto__ || Object.getPrototypeOf(Calendar)).call(this));
+    var _this2 = _possibleConstructorReturn(this, (Calendar.__proto__ || Object.getPrototypeOf(Calendar)).call(this, props));
 
     _this2.state = {
       date: (0, _moment2.default)().date(),
       month: (0, _moment2.default)().month(),
       year: (0, _moment2.default)().year(),
+      fontColor: _this2.props.fontColor,
+      selectedFontColor: _this2.props.selectedFontColor,
+      selectedColor: _this2.props.selectedColor,
+      highlightedColor: _this2.props.highlightedColor,
       startDay: null,
       startMonth: null,
       endDay: null,
@@ -19257,7 +19261,11 @@ var Calendar = function (_Component2) {
                   year: _this3.state.year,
                   handler: _this3.toggle.bind(_this3),
                   selected: item !== null && (item === _this3.state.startDay && _this3.state.month === _this3.state.startMonth || item === _this3.state.endDay && _this3.state.month === _this3.state.endMonth),
-                  highlighted: item !== null && _this3.state.endDay !== null && (item > _this3.state.startDay && item < _this3.state.endDay && _this3.state.month === _this3.state.startMonth && _this3.state.month === _this3.state.endMonth || _this3.state.startMonth !== _this3.state.endMonth && (_this3.state.month === _this3.state.startMonth && item > _this3.state.startDay || _this3.state.month === _this3.state.endMonth && item < _this3.state.endDay || _this3.state.month < _this3.state.endMonth && _this3.state.month > _this3.state.startMonth))
+                  highlighted: item !== null && _this3.state.endDay !== null && (item > _this3.state.startDay && item < _this3.state.endDay && _this3.state.month === _this3.state.startMonth && _this3.state.month === _this3.state.endMonth || _this3.state.startMonth !== _this3.state.endMonth && (_this3.state.month === _this3.state.startMonth && item > _this3.state.startDay || _this3.state.month === _this3.state.endMonth && item < _this3.state.endDay || _this3.state.month < _this3.state.endMonth && _this3.state.month > _this3.state.startMonth)),
+                  fontColor: _this3.state.fontColor,
+                  selectedFontColor: _this3.state.selectedFontColor,
+                  selectedColor: _this3.state.selectedColor,
+                  highlightedColor: _this3.state.highlightedColor
                 });
               })
             );
