@@ -5,6 +5,10 @@ A calendar selectoin view for your react project
 1. Install using npm or yarn (`npm i date-ranges`)
 2. Import using `import Calendar from 'date-ranges'`
 
+## Visuals
+Using this package provides a calendar view which allows date ranges to be selected, with a start and end date. The start and end dates are marked with a specific color scheme, with all dates inbetween using a highlighted color scheme. The image below provides an example of possible color schemes with this datepicker.
+![Alt text](images/date_pic.png?raw=true "Calendar")
+
 ## Usage
 The given code snippet demonstrates how to utilize the `Calendar` module in another component.
 
