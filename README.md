@@ -7,9 +7,9 @@ A calendar selectoin view for your react project
 
 ## Visuals
 Using this package provides a calendar view which allows date ranges to be selected, with a start and end date. The start and end dates are marked with a specific color scheme, with all dates inbetween using a highlighted color scheme. The image below provides an example of possible color schemes with this datepicker.
-<div align='center'>
+<p align='center'>
   ![Alt text](images/date_pic.png?raw=true "Calendar")
-</div>
+</p>
 
 ## Usage
 The given code snippet demonstrates how to utilize the `Calendar` module in another component.
